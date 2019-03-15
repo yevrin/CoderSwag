@@ -2,9 +2,8 @@ package com.example.coderswag.Controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.example.coderswag.Adapter.CategoryAdapter
-import com.example.coderswag.Model.Category
 import com.example.coderswag.R
 import com.example.coderswag.Services.DataService
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,6 +26,16 @@ class MainActivity : AppCompatActivity() {
         categoryAdapter = CategoryAdapter(this, DataService.categories)
 
 
-        categoriesList.adapter = categoryAdapter
+        //categoriesRecyclerView.adapter = categoryAdapter
+        categoriesListView.adapter = categoryAdapter
+
+        //DOES NOT WORK FOR RECYCLER VIEW
+//        categoriesListView.setOnItemClickListener { parent, view, position, id ->
+//            val category = DataService.categories[position]
+//            Toast.makeText(this, "You clicked on the ${category.title} cell.", Toast.LENGTH_SHORT).show()
+//        }
+            
+
+
     }
 }
