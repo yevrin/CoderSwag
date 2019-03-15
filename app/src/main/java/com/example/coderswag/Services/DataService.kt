@@ -15,9 +15,9 @@ object DataService {
         Product("Pumat Sol\'s The Invulnerable Vagrant T-Shirt", "shirt03", 25.00),
         Product("Critical Role Retro Ringer T-Shirt", "shirt04", 25.00),
         Product("Nott The Best Detective Agency T-Shirt", "shirt05", 25.00),
-        Product("Critical Role Might Nein T-Shirt", "shirt05", 25.00))
+        Product("Critical Role Might Nein T-Shirt", "shirt06", 25.00))
 
-    val hoodies = listOf(Product("How Do You Want To Do This? Hoodie", "hoodies01",65.00 ))
+    val hoodies = listOf(Product("How Do You Want To Do This? Hoodie", "hoodie01",65.00 ))
 
     val hats = listOf(Product("Critical Role Logo Hat Navy", "hat01", 25.00 ),
         Product("Critical Role \'Do You Spice?\' Cap", "hat02", 18.00),
