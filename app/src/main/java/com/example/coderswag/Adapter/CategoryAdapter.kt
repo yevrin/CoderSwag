@@ -19,16 +19,32 @@ class CategoryAdapter(context:Context, categories: List<Category>) : BaseAdapter
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         val categoryView : View
-        categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
+        val holder : ViewHolder
 
-        //THIS IS BAD IMPLEMENTATION -- VERY COMPUTING HEAVY
-        val categoryImage : ImageView = categoryView.findViewById(R.id.categoryImg)
-        val categoryName : TextView = categoryView.findViewById(R.id.categoryTxt)
+        if(convertView == null){
+            categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
+            holder = ViewHolder()
+            holder.categoryImage = categoryView.findViewById(R.id.categoryImg)
+            holder.categoryName  = categoryView.findViewById(R.id.categoryTxt)
+            categoryView.tag = holder
+
+        }else{
+            holder = convertView.tag as ViewHolder
+            categoryView = convertView
+
+        }
+
+//        //THIS IS BAD IMPLEMENTATION -- VERY COMPUTING HEAVY
+//        categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
+//        val categoryImage : ImageView = categoryView.findViewById(R.id.categoryImg)
+//        val categoryName : TextView = categoryView.findViewById(R.id.categoryTxt)
 
         val category = categories[position]
         val resourceID = context.resources.getIdentifier(category.image, "drawable", context.packageName)
-        categoryImage.setImageResource(resourceID)
-        categoryName.text = category.title
+        //categoryImage.setImageResource(resourceID)
+        //categoryName.text = category.title
+        holder.categoryImage?.setImageResource(resourceID)
+        holder.categoryName?.text = category.title
 
 
         return categoryView
@@ -50,4 +66,9 @@ class CategoryAdapter(context:Context, categories: List<Category>) : BaseAdapter
         return categories.count()
     }
 
+    private class ViewHolder{
+        var categoryImage: ImageView? = null
+        var categoryName : TextView? = null
+
+    }
 }
