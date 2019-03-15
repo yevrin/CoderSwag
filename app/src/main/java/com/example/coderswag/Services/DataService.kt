@@ -8,10 +8,6 @@ object DataService {
     val categories = listOf(Category("SHIRTS", "shirtimage"),
         Category("HOODIES", "hoodieimage"),
         Category("HATS", "hatimage"),
-        Category("ACCESSORIES", "accessoriesimage"),
-        Category("SHIRTS", "shirtimage"),
-        Category("HOODIES", "hoodieimage"),
-        Category("HATS", "hatimage"),
         Category("ACCESSORIES", "accessoriesimage"))
 
     val shirts = listOf(Product("The Whispered One Skull T-Shirt", "shirt01", 25.00 ),
@@ -34,5 +30,16 @@ object DataService {
         Product("Critical Role Traveller Bumper Sticker", "accessories04", 5.00),
         Product("Critical Role Tusk Love Notebook", "accessories05", 12.00))
 
+    val emptyDefault = listOf<Product>()
 
+    fun getProducts(category: String) : List<Product>{
+
+        when(category){
+            "SHIRTS"-> return shirts
+            "HOODIES"-> return hoodies
+            "HATS"-> return hats
+            "ACCESSORIES"-> return accessories
+            else -> return emptyDefault
+        }
+    }
 }
